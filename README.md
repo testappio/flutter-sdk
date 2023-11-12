@@ -302,6 +302,8 @@ At TestApp.io, we deeply respect the privacy of our users and their end-users. H
 
 If you have any concerns or questions about privacy, please reach out to our team at [support@testapp.io](mailto:support@testapp.io).
 
+---
+
 ### Feedback & Support <a name="feedback-support"></a>
 
 Developers built [TestApp.io](https://testapp.io) to solve the pain of app distribution & feedback for mobile app development teams.
@@ -311,8 +313,3 @@ Join our [community](https://help.testapp.io/faq/join-our-community/) for feedba
 Check out our [Help Center](https://help.testapp.io/) for more info and other integrations.
 
 Happy Testing 🎉
-
-###  License <a name="license"></a>
-Copyright (C) 2023 TestApp.io Permission is hereby granted to use this framework as is, modification are not allowed. All rights reserved.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
