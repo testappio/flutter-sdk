@@ -1,0 +1,33 @@
+PODS:
+  - Flutter (1.0.0)
+  - testappio (1.0.0):
+    - Flutter
+    - TestAppIOSDK (~> 2.0)
+  - TestAppIOSDK (2.0.0)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - testappio (from `.symlinks/plugins/testappio/ios`)
+  - TestAppIOSDK (from `https://github.com/testappio/ios-sdk.git`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  testappio:
+    :path: ".symlinks/plugins/testappio/ios"
+  TestAppIOSDK:
+    :git: https://github.com/testappio/ios-sdk.git
+
+CHECKOUT OPTIONS:
+  TestAppIOSDK:
+    :commit: a8787421ead803c89d991464931536bc0ec96a60
+    :git: https://github.com/testappio/ios-sdk.git
+
+SPEC CHECKSUMS:
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  testappio: 331c628334534fad24bf83652e3804fbf633e0d5
+  TestAppIOSDK: 14f70fc0badf5b679dee75428f521bf32c7ce2d5
+
+PODFILE CHECKSUM: a6730806d02d38037ba867a364d2ce51902e0507
+
+COCOAPODS: 1.14.2
