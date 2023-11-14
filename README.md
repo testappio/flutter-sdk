@@ -6,40 +6,49 @@ Seamlessly integrate TestApp.io's comprehensive feedback and performance monitor
 
 ## Table of Contents
 1. [Overview](#overview)
-2. [Features](#features)
-3. [Setup & Installation](#setup)
-   - [Installation](#installation)
-   - [Permissions](#permissions)
-   - [Initialization](#initialization)
-   - [Updating the SDK](#update-sdk)
-4. [Usage](#usage)
+2. [Requirements](#requirements)
+3. [Features](#features)
+4. [Setup & Installation](#setup-install)
+   - [Android](#android)
+   - [iOS](#ios)
+      - [Podfile](#podfile)
+      - [pubspec.yaml](#pubspec)
+      - [Permissions](#permissions)
+      - [Initialization](#initialization)
+      - [Update SDK](#update-sdk)
+5. [Features](#features)
+6. [Usage](#usage#screenshots-from-a-sample-app)
    - [User Identification](#user-identification)
+      - [Traits](#traits)
+      - [User Reset](#user-reset)
    - [UI Interactions](#ui-interactions)
-   - [Logging & Events](#logging-events)
-   - [Application & Session Lifecycle](#lifecycle-events)
-5. [Continuous Sessions](#continuous-sessions)
-6. [Advanced Configurations](#advanced-configurations)
-7. [FAQ & Additional Information](#faq)
+   - [Logging & Events](#4-initialization)
+   - [Continuous Sessions](#continuous-sessions)
+   - [Application & Session Lifecycle](#app-lifecycle-sessions-events)
+      - [Session Events](#session-events)
+      - [Lifecycle Events](#lifecycle-events)
+      - [Offline Mode](#offline-mode)
+7. [Screenshots](#screenshots)
+7. [FAQ](#faq)
 8. [Privacy](#privacy)
 9. [Feedback & Support](#feedback-support)
-10. [License](#license)
 
 ## Overview <a name="overview"></a>
 
 TestApp.io SDK bridges your application with the TestApp.io platform, enabling a deeper understanding of user interactions and app behavior. Through the TestApp.io Portal, you can easily monitor sessions, gather feedback, and track activities.
 
-## Requirements
+## Requirements <a name="requirements"></a>
 
 - Flutter: **2.5.0** or higher
 - Dart: **2.12.0** or higher
 - iOS: Minimum iOS deployment target is iOS **13.0** or higher
 
-## Step-by-Step Installation <a name="step-install"></a>
+## Setup & Installation <a name="setup-install"></a>
 
-### Android
+### Android <a name="android"></a>
 > Coming soon!
 
-### iOS
+### iOS <a name="ios"></a>
 
 To ensure proper functionality of the TestApp.io SDK on iOS, your project's minimum iOS deployment target should be set to iOS **13.0** or higher. This is due to specific features and capabilities used by the SDK that are available from iOS 13 onwards.
 
@@ -50,14 +59,14 @@ To set the iOS deployment target, follow these steps:
 3. Under `General`, find the or `Minimum Deployments` or `Deployment Info`section.
 4. Set the `Target` field to iOS 13.0 or higher.
 
-### 1. **Podfile**
+### 1. **Podfile** <a name="podfile"></a>
 Add the TestApp.io SDK to your iOS project's `Podfile`:
 ```ruby
 pod 'TestAppIOSDK', :git => 'https://github.com/testappio/ios-sdk.git'
 ```
 Then run `pod install`
 
-### 2. pubspec.yaml
+### 2. pubspec.yaml <a name="pubspec"></a>
 Add testappio to your project pubspec.yaml
 
 ```yaml
@@ -70,7 +79,7 @@ dependencies:
       path: package/core
 ```
 
-### 3. Permissions:
+### 3. Permissions: <a name="pubspec"></a>
 Add necessary permissions to your app's `Info.plist`:
    - **Photo Library Access**: For screen recordings and images.
       - `NSPhotoLibraryUsageDescription`
@@ -78,7 +87,7 @@ Add necessary permissions to your app's `Info.plist`:
       - `NSPhotoLibraryAddUsageDescription`
 	  > Provide access to get photos and videos from your gallery
 
-### 4. Initialization:
+### 4. Initialization: <a name="initialization"></a>
 In your app's launch sequence, add:
 
 ```dart
@@ -92,6 +101,8 @@ if (Platform.isIOS) {
 	await testappio.setup('<APP_TOKEN>', TestAppioEnvironment.dev); //[TestAppioEnvironment.dev, TestAppioEnvironment.staging, TestAppioEnvironment.production]
 }
 ```
+
+Collect your App Token from [App -> Integrations -> Sessions (SDK)](https://portal.testapp.io/apps?to=app-integrations&tab=sessions)
 
 ## Updating the SDK <a name="update-sdk"></a>
 To ensure you're benefiting from the latest features and optimizations, regularly update the TestApp.io SDK:
@@ -138,10 +149,24 @@ testappio.user.identify("U123456",
 );
 ```
 
-## Traits
+## Traits <a name="traits"></a>
+
 Traits are pieces of information about a user that you can include in an `identify` call. These traits can be diverse, ranging from demographics like age or gender, account-specific details like the user's subscription plan, or even data related to A/B test variations the user has encountered. The purpose of traits is to provide additional context and information about your users.
 
 Including traits in your `identify` calls can be essential for personalization, analytics, and targeting. They help you understand your users better, segment them effectively, and tailor their experience based on their characteristics.
+
+## User Reset <a name="user-reset"></a>
+
+```dart
+// To reset the user
+testappio.user.reset()
+```
+
+The reset method allows you to reset the user's identity, effectively clearing their identification data.
+
+> Use this when user changes like Signout / Logout
+
+---
 
 ### UI Interactions <a name="ui-interactions"></a>
 Make it effortless for users to provide feedback by showcasing the TestApp.io bar.
@@ -158,6 +183,8 @@ testappio.bar.show() //by default enabled
 // To hide the feedback bar
 testappio.bar.hide()
 ```
+
+---
 
 ### Logging & Events <a name="logging-events"></a>
 Monitor user activities, track errors, and understand screen transitions to optimize the app experience.
@@ -191,17 +218,6 @@ testappio.log.screen("User Profile", {
 });
 ```
 
-## User Reset
-
-```dart
-// To reset the user
-testappio.user.reset()
-```
-
-The reset method allows you to reset the user's identity, effectively clearing their identification data.
-
-> Use this when user changes like Signout / Logout
-
 ---
 
 
@@ -209,11 +225,12 @@ The reset method allows you to reset the user's identity, effectively clearing t
 
 The TestApp.io SDK employs a "continuous sessions" approach. This means that if a session becomes full or meets specific criteria, a new session is automatically initiated for the device, ensuring uninterrupted data capture.
 
-### Application & Session Lifecycle <a name="lifecycle-events"></a>
+### Application & Session Lifecycle <a name="app-lifecycle-sessions-events"></a>
 The TestApp.io SDK seamlessly integrates with your app's lifecycle, automatically capturing key application events.
 
 
-#### Session Events
+#### Session Events <a name="session-events"></a>
+
 | Event                  | Description                                                           |
 |------------------------|-----------------------------------------------------------------------|
 | Session start          | Marks the beginning of a new user session.                             |
@@ -222,7 +239,9 @@ The TestApp.io SDK seamlessly integrates with your app's lifecycle, automaticall
 | Session resumed        | Indicates that a previously paused or backgrounded session is resumed. |
 
 
-#### Lifecycle Events
+
+#### Lifecycle Events <a name="lifecycle-events"></a>
+
 | Event                  | Description                                                           |
 |------------------------|-----------------------------------------------------------------------|
 | Application opened     | Triggered when the app is launched.                                   |
@@ -233,16 +252,17 @@ The TestApp.io SDK seamlessly integrates with your app's lifecycle, automaticall
 
 In addition to application events, the SDK diligently manages session lifecycle events, ensuring insights into user session behaviors.
 
-### Advanced Configurations <a name="advanced-configurations"></a>
 
-#### Offline Mode
+
+#### Offline Mode <a name="offline-mode"></a>
 Network unavailable? No worries. The SDK is built for resilience. In scenarios where the user's device is offline, the SDK will continue to capture all events, errors, and feedback. Once the network is restored, the SDK will automatically send the accumulated data in batches, ensuring no data loss.
 
 #### Efficient Networking
 The SDK employs batching and compression to ensure optimal network usage. This means fewer requests, reduced data usage, and faster event delivery.
 
+---
 
-### Screenshots from a sample app
+### Screenshots from a sample app <a name="screenshots"></a>
 
 ![TestApp.io SDK Screenshots from Sample App](https://f000.backblazeb2.com/file/help-testappio/2023/11/sdk_screenshots_o.png)
 
