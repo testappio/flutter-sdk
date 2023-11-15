@@ -45,5 +45,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Provide access to save photos and videos in your gallery</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Provide access to get photos and videos from your gallery</string>
 </dict>
 </plist>
