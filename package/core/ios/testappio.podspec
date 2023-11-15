@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'testappio'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'TestApp.io SDK with your Flutter app'
   s.description      = <<-DESC
 TestApp.io SDK for Flutter allows seamless integration of TestApp.io's comprehensive feedback and performance monitoring tools into Flutter applications. It enables the capture of insightful feedback and crucial events with minimal effort to enhance app quality and user experience.

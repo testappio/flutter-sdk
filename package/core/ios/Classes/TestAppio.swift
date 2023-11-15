@@ -42,7 +42,7 @@ public class TestAppioPlugin: NSObject, FlutterPlugin {
         let appToken = args["appToken"],
         let environmentString = args["environment"],
         let environment = TestAppio.Environmnent(rawValue: environmentString) {
-            TestAppio.setup(configuration: .init(appToken: appToken, environment: environment))
+            TestAppio.setup(configuration: .init(appToken: appToken, environment: environment, sdk: SDK(name: "Flutter", version: "1.0.1")))
             result(nil)
         } else {
             result(FlutterError(code: "InvalidArguments", message: "Invalid arguments for 'setup'", details: nil))
