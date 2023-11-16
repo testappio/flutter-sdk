@@ -1,9 +1,9 @@
 PODS:
   - Flutter (1.0.0)
-  - testappio (1.0.0):
+  - testappio (1.0.1):
     - Flutter
     - TestAppIOSDK (~> 2.0)
-  - TestAppIOSDK (2.0.0)
+  - TestAppIOSDK (2.0.1)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
@@ -20,13 +20,13 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   TestAppIOSDK:
-    :commit: a8787421ead803c89d991464931536bc0ec96a60
+    :commit: 7cc4b55ab780a74b92b8b7c448f31a20afb6e8fd
     :git: https://github.com/testappio/ios-sdk.git
 
 SPEC CHECKSUMS:
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  testappio: 331c628334534fad24bf83652e3804fbf633e0d5
-  TestAppIOSDK: 14f70fc0badf5b679dee75428f521bf32c7ce2d5
+  testappio: 36be52c9d83022e75f5bf17674b2800d849e74e9
+  TestAppIOSDK: a6886c351f2cd91adf3b477f05cdb06e05f41976
 
 PODFILE CHECKSUM: a6730806d02d38037ba867a364d2ce51902e0507
 
